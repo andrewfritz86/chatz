@@ -21,9 +21,8 @@ var io = require("socket.io")(server)
 
 
 io.on("connection", function(socket){
-  // console.log("SOMEONE CONNECTED!"
-  socket.on("anya", function(data){
-    console.log("the client said anya" + data.name + data.short)
-    io.emit("anyatalked", "sup")
+  socket.on("newName", function(data){
+    console.log(data)
+    io.emit("friendName", data)
   })
 })
